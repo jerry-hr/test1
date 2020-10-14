@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    这是我的第一个页面
+    <p>这是第一段</p> hello world!<br />
+    <p><b><i><u>这是第二段</b></i></u></p>
+  
+  <font face="微软雅黑" size="7" color ="green">我是7号绿色文本，我的字体是微软雅黑</font><br/>
+  <font face="微软雅黑" size="7" color ="#ffcc33">我是7号黄色文本，我的字体是微软雅黑</font><br/>
+  <font face="微软雅黑" size="7" color =rgb(255,0,0)>我是7号红色文本，我的字体是微软雅黑</font><br/>
+    <div class="red"><h1><b>这是第一句话</b></h1></div>
+    <div id="green"><h2><i>这是第二句话</i></h2></div>
+    <div ><h3><u>这是第三句话</u></h3></div>
+    <img src="./image/zhu.jpg" alt="">
+    <fieldset> 
+        <legend>注册新用户</legend>  <!--post保密性更好，开发一般用这个-->
+            <form action="#" method="POST" name="biaodan">
+                <table align="center">
+                    <tr>
+                        <td>
+                            用户名： 
+                        </td>
+                        <td>
+                            <input type="text" name="username"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            密码： 
+                        </td>
+                        <td>
+                            <input type="password" name="psw" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            性别：
+                        </td>
+                        <td>
+                            <input type="radio" name="sex" value="男"/>男
+                            <input type="radio" name="sex" value="女" />女
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            兴趣：
+                        </td>
+                        <td>
+                            <input type="checkbox" name="running"/>跑步
+                            <input type="checkbox" name="swimming"/>游泳
+                            <input type="checkbox" name="basketball"/>打篮球
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td>
+                            头像：
+                        </td>
+                        <td>
+                            <input type="file" name="file"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            自我介绍：
+                        </td>
+                        <td>
+                            <textarea cols="50" rows="5">
+
+                            </textarea>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                         <td align="center" colspan="2" > <!--合并单元格 -->
+                            <input type="submit" value="注册"/>
+                            <input type="reset"  value="重置"/>
+                        </td>
+                    </tr>
+            <hr/>
+                </table>
+                                                      <!----单元格与单元格之间的距离-->    <!--文本与单元格之间的距离-->
+                <table border="1" width="400" align="center" cellspacing="0"                  cellpadding="6">
+                    <tr align="center">
+                    <td>姓名</td>
+                    <td>语文</td>
+                    <td>数学</td>
+                    <td>英语</td>
+                    </tr>
+                    <tr align="center">
+                    <td>小刚</td>
+                    <td>80</td>
+                    <td>100</td>
+                    <td>90</td>
+                    </tr>
+                    <tr align="center">
+                    <td>小红</td>
+                    <td>99</td>
+                    <td>89</td>
+                    <td>90</td>
+                    <tr>
+                    </table>
+            </form>
+        
+    </fieldset>
+</body>
+</html>

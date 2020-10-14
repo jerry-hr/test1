@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" href="reg-work33.css">
+	<script>
+		//   判断用户名格式是否正确
+		  function userName(){
+			 var name =  document.getElementById("username");
+			 var flag = name.checkValidity();
+			 if(!flag){
+				alert("用户名格式错误，请按格式要求填写！");
+			 }
+		  }
+		  function checkNum(){
+			  var numm = document.getElementById("num");
+			  var result = document.getElementById("number");
+			  var flag = numm.checkValidity();
+			  if(flag)
+			  {
+				  result.innerHTML = "电话号码输入格式正确";
+			  }
+			  else
+			  {
+				  result.innerHTML = "抱歉，电话号码输入格式错误";
+			  }
+		  }
+		//   判断密码强度
+		function checkStrength()
+		{
+			var strength = document.getElementById("strength");
+			var psw1 = document.getElementById("psw1").value;
+			var length = psw1.length;
+			if(1<=length&&length<=3)
+			{
+				strength.innerHTML="弱";
+			}
+			else if (3 < length&&length<=6)
+			{
+				strength.innerHTML="中";
+			}
+			else
+			{
+				strength.innerHTML="强";
+			}
+		}
+		// 确认密码是否一致
+		function checkPSW()
+		{
+			var psw1 = document.getElementById("psw1").value;
+			var psw2 =  document.getElementById("psw2").value;
+			var pswInfo =  document.getElementById("pswInfo");
+			if(psw1 != psw2)
+			{
+				pswInfo.innerHTML='两次输入的密码必须一致';
+			}
+			else
+			{
+				pswInfo.innerHTML='';
+	
+			}
+		}
+		// 弹出窗口确认信息
+		function reg()
+		{
+			var username = document.getElementById("username").value;
+			var email = document.getElementById("email").value;
+			var num = document.getElementById("num").value;
+			var ren = document.getElementById("gender").value;
+	
+			if(document.getElementById("username").checkValidity()
+			&&document.getElementById("email").checkValidity()
+			&&document.getElementById("psw1").checkValidity()
+			&&document.getElementById("psw2").checkValidity()
+			&&document.getElementById("num").checkValidity()
+			&&document.getElementById("gender").checkValidity())
+			{
+				alert(
+					'用户名：'+username+'\n'+
+					'邮箱：'+email+'\n'+
+					'手机号码:'+num+'\n'+
+					'旅客类型:'+ren+'\n'
+				)
+			}
+		}
+	  </script>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <div class="head">
+        <div class="logo">
+            <img src="./image/logo.png" alt="">
+        </div>
+        <div class="car">
+            <img src="./image/cart.gif" alt="">
+        </div>
+        <div class="box-right">
+            <a href="#">购物车</a>
+            |&nbsp;<a href="#">购物中心</a>
+            |&nbsp;<a href="#">我的账户</a>
+            |&nbsp;<a href="reg-work33.css">新用户注册</a>
+        </div>
+    </div>      
+    <!-- 绿条 -->
+    <div style="width: 100%;height: 5px;background-color: #8bae72;"></div>
+    <!-- 导航条 -->
+    <div class="nav"> 
+        <div class="nav-box">
+            <ul class="nav-li">
+                <li><a href="#">文学</a></li>
+                <li><a href="#">生活</a></li>
+                <li><a href="#">计算机</a></li>
+                <li><a href="#">外语</a></li>
+                <li><a href="#">经管</a></li>
+                <li><a href="#">励志</a></li>
+                <li><a href="#">社科</a></li>
+                <li><a href="#">学术</a></li>
+                <li><a href="#">少儿</a></li>
+                <li><a href="#">艺术</a></li>
+                <li><a href="#">原版</a></li>
+                <li><a href="#">科技</a></li>
+                <li><a href="#">考试</a></li>
+                <li><a href="#">生活百科</a></li>
+                <li style="width: 100px;height: 60px; padding-left: 25px;"><a href="#" style="color: yellow;">全部商品目录</a></li>
+            </ul>
+        </div>
+    </div> 
+    <!-- 搜索框 -->
+    <div class="search-box">
+        <div class="search">
+            <div class="box1">Search</div>
+            <div class="box2"><input type="search" value="请输入书名"></div>
+            <div class="search-img"><a href="#"><img src="./image/serchbutton.gif" alt=""></a></div>
+        </div>
+    </div>    
+    <!-- 内容 -->
+   <div class="node">
+	   <div style="margin:10px;">新用户注册</div>
+	   <div class="top">
+			<form action="">
+					<table style="text-align: left;margin: auto;" >
+						<tr>
+							<td>会员邮箱</td>
+							<td><input type="email" id="email" /></td>
+							<td><span>请输入有效的邮箱地址</span></td>
+						</tr>
+						<tr>
+							<td >会员名</td>
+							<td ><input type="text" id="username" required="true" onblur=" userName()" 
+								pattern="^[a-zA-Z0-9]{5,10}$" >
+							</td>
+							<td><span>字母数字下划线1到10位，不能是数字开头</span></td>
+						</tr>
+						<tr>
+							<td>密码</td>
+							<td><input type="password" id="psw1" onkeyup="checkStrength()"/></td>
+							<td><span id="strength">密码请设置6到16位字符</span></td>
+						</tr>
+						<tr>
+							<td>重复密码</td>
+							<td><input type="password" id="psw2" onblur="checkPSW()"/></td>
+							<td><span id="pswInfo"></span></td>
+						</tr>
+						<tr>
+							<td>性别：</td>
+							<td><input type="radio" name="sex" value="男">男
+								<input type="radio" name="sex" value="女">女
+							</td>
+						</tr>
+						<tr>
+							<td>手机号码</td>
+							<td><input type="text" id="num" pattern="^1[3456789]\d{9}$" 
+								 placeholder="请输入11位数字" onblur="checkNum()"/>
+								 </td>
+							<td><span id="number"></span></td>
+						</tr>
+						<tr>
+							<td>个人介绍：</td>
+							<td>
+								<textarea name="" id="" cols="25" rows="5"></textarea>
+
+							</td>
+						</tr>
+				</table>
+			</form>       
+	   </div>
+		<div class="sub"><input type="submit" value="同意并提交"onclick="reg()"></div>
+   </div>
+
+    <div class="node3">
+        <div class="logo2">
+            <img src="./image/logo.png" alt="">
+        </div>
+        <div class="text-box">
+            CONTACT US 
+            <br>
+            <p style="color: #969ba1;">COPYRLGHT 2015@ BookStore</p>
+        </div>
+	</div>    
+	
+</body>
+</html>
+</body>
+</html>

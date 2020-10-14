@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="myCanvas1" width="300" height="300" ></canvas>
+	<button onclick="drawLine()">绘图1</button>
+	<canvas id="myCanvas2" width="500" height="500" ></canvas>
+
+	<button onclick="draw()">绘图2</button>
+	 
+	<script>
+        function drawLine()
+        {
+            var canvas = document.getElementById("myCanvas1");
+            var context = canvas.getContext("2d");
+			context.fillStyle="gray";
+            context.moveTo(85,25);
+            context.lineTo(50,70);
+            context.lineTo(100,100);
+
+            context.moveTo(105,100);
+            context.lineTo(150,70)
+            context.lineTo(120,25);
+            context.lineTo(85,25);
+
+            context.fillRect(100,100,5,100);
+
+            context.stroke();
+        }
+	
+		function draw()
+		{
+			var canvas = document.getElementById("myCanvas2");
+            var context = canvas.getContext("2d");
+			var linearText = context.createLinearGradient(200,150,400,250);
+			linearText.addColorStop(0,"green");
+			linearText.addColorStop(0.5,"blue");
+			linearText.addColorStop(1,"red");
+
+			context.fillStyle = linearText;
+			context.font="30px Arial";
+			context.textBaseline="top";
+			context.fillText("我家旁边有颗树",200,150);
+			context.fillText("我家旁边有颗树",200,150);
+
+			context.translate(230,-70);	
+			context.rotate(Math.PI/3);			 
+		}
+	</script>
+</body>
+</html>

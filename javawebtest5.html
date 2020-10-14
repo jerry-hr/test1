@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function hid()
+        {
+            if(confirm("确定删除吗？"))
+            {
+                document.getElementById("apple").style.visibility="hidden";
+            }
+        }
+        function show()
+        {
+            document.getElementById("apple").style.visibility="visible";
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td id="apple">苹果手机</td>
+            <td><input type="button" id="button" value="删除" onclick="hid()" ></td>
+            <td><input type="button" id="button" value="恢复" onclick="show()"></td>
+        </tr>
+    </table>
+    
+</body>
+</html>

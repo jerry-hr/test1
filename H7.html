@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript"> 
+    var c = document.getElementById("myCanvas"),
+        cxt = c.getContext("2d"),
+       
+        //字体高度
+        FONT_HEIGHT = 15,
+        //外边距
+        MARGIN = 35,
+        //时钟半径（留出外边距放数字）
+        RADIUS = canvas.width/2-MARGIN,
+        //分针和秒针的截断长度
+        HAND_TRUNCATION = canvas.width/18,
+        //时针截断长度
+        HOUR_HAND_TRUNCATION = canvas.width/10,
+        //数字空隙
+        NUMERAL_SPACING = -20,
+        //指针的全长度
+        HAND_RADUIS = RADIUS + NUMERAL_SPACING;
+ 
+    function draw()
+    {
+        cxt.beginPath(); //开始绘制路径
+        cxt.arc(200, 150, 4, 0, 2 * Math.PI, true); //绘制表盘中心
+        cxt.fill(); 
+        cxt.closePath(); 
+    
+        cxt.beginPath(); 
+        cxt.arc(200, 150, 100, 0, 2 * Math.PI, true); //绘制表盘外围
+        cxt.stroke(); 
+        cxt.closePath(); 
+
+        cxt.beginPath(); 
+        cxt.translate(200, 150); //平移原点； 
+        cxt.rotate(-Math.PI / 2); 
+        cxt.save();        
+
+    function drawNumerals()
+    {
+        var numerals = [1,2,3,4,5,6,7,8,9,10,11,12],
+            angle = 0,
+            numeralWidth = 0;
+ 
+        numerals.forEach(function (numeral) {
+            //设置每个数字的角度。注意：数字3是0度
+            angle = Math.PI/6*(numeral-3);
+            //在向画布输出之前，以像素度量各数字的宽度
+            numeralWidth = cxt.measureText(numeral).width;
+            //利用三角函数，填充每个数字到对应位置
+            cxt.fillText(numeral,canvas.width/2+Math.cos(angle)*(HAND_RADUIS)-numeralWidth/2,canvas.height/2+Math.sin(angle)*(HAND_RADUIS)+FONT_HEIGHT/3);
+        })
+    }
+
+        
+    function Refresh() 
+    { 
+        var c = document.getElementById("myCanvas"); 
+        var cxt = c.getContext("2d"); 
+        cxt.restore(); 
+        cxt.save(); 
+        cxt.rotate(ls * Math.PI / 30); 
+        cxt.clearRect(5, -1, slen+1, 4); //清除秒针上次显示内容
+        cxt.restore(); 
+        cxt.save(); 
+    
+        cxt.rotate(lm * Math.PI / 30); 
+        cxt.clearRect(5, -1, mlen+1, 5); //清除分针上次显示内容
+        cxt.restore(); 
+        cxt.save(); 
+    
+        cxt.rotate(lh * Math.PI / 6); 
+        cxt.clearRect(5, -3, hlen+1, 6); //清除时针上次显示内容
+        var time = new Date(); 
+        var s = ls=time.getSeconds(); //获取当前时间（秒钟）
+        var m = lm=time.getMinutes(); //获取当前时间（分钟）
+        var h = lh=time.getHours();	 //获取当前时间（小时）
+        cxt.restore(); 
+        cxt.save(); 
+        cxt.rotate(s * Math.PI / 30); //根据秒钟数设置秒针位置
+        cxt.fillRect(5, 0, slen, 2); //重新绘制秒针
+        cxt.restore(); 
+        cxt.save(); 
+        cxt.rotate(m * Math.PI / 30); //根据当前分钟数设置分针位置 
+        cxt.fillRect(5, 0, mlen, 3); //重新绘制分针
+        cxt.restore(); 
+        cxt.save(); 
+        cxt.rotate(h * Math.PI / 6); //根据当前小时数设置时针位置 
+        cxt.fillRect(5, -2, hlen, 4); //重新绘制时针
+    } 
+    </script>
+    <fieldset>
+        <legend>绘制时钟</legend>
+        <canvas id="myCanvas" width="500" height="500"></canvas> 
+        <br>
+        <button onclick="draw()">绘图</button> 
+        <button onclick="drawNumerals()">绘图2</button> 
+    </fieldset>
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*alert("hello world!"); //弹出窗口--hello world!
+        document.write("你好世界！");//直接显示文本内容，你好世界！*/
+        //----------------------------------------------------------------
+        /*function add(a,b){
+            var sum=a+b;
+            return sum;
+        }
+        document.write(add(1,3));*/
+        //----------------------------------------------------------------
+        /*var a=10;  //显示类型
+        alert(typeof a);
+        var b="Welcome";
+        alert(typeof b);
+        var c=true;
+        alert(typeof c);
+        var d=null;
+        alert(typeof d);
+        var e;
+        alert(typeof e);*/
+        //---------------------------------------------------------------
+        /*var a1=10;
+        var a2=5;
+        alert((a1==a2)?true:false);
+        if(a1==a2){
+            alert("相等");
+        }else{
+            alert("不相等");
+        }*/
+        //-------------------------------------------------------------------
+        //创建函数
+        /*function add1(a3,b3){
+            var sum=a3+b3;
+            return sum;
+        }
+        alert(add1(1,2));
+        //创建匿名函数
+        add2=function(a3,b3){
+            var sum=a3+b3;
+            return sum;
+        }
+        alert(add2(3,4));
+       //创建函数，自定义函数体
+        var param="a3,b3";
+        var method="var sum=a3+b3;return sum;";
+        var add3=new Function(param,method);
+        alert(add3(5,6));*/
+        //-------------------------------------------------------------------
+        /*function showtime(){
+            var mydate=new Date();
+            var year=mydate.getFullYear();
+            var month=mydate.getMonth()+1;
+            var day=mydate.getDate();
+            var week=mydate.getDay();
+            if(week==0) week="星期日";
+            if(week==1) week="星期一";
+            if(week==2) week="星期二";
+            if(week==3) week="星期三";
+            if(week==4) week="星期四";
+            if(week==5) week="星期五";
+            if(week==6) week="星期六";
+            var hour=mydate.getHours();
+            var min=mydate.getMinutes();
+            var second=mydate.getSeconds();
+            document.write(year+"年"+month+"月"+day+"日"+" "+week+" "+hour+"时"+min+"分"
+            +second+"秒");
+        }*/
+        //------------------------------------------------------------------------
+        /*function blind(){
+            var s="Hello world!";
+            document.write(s.bold());
+        }*/
+        //-----------------------------------------------------------
+        var reg=/^1[3|5|7|9]{1}[0-9]{9}$/;
+        var s="13582081342";
+        var flag=reg.test(s);
+        alert(flag);
+    </script>
+</head>
+<!-- <body onload="showtime()"> -->
+<!-- <body onload="blind()"> -->
+    <!--
+    <input type="button" name="btn" value="点我1" onclick="add()"/>  
+    <input type="button" name="btn" value="点我2" id="btnID"/>  
+    <input type="button" name="btn" value="点我3" onclick="alert('Hello!')"/> -->
+    
+</body>
+<!--<script>
+    function add(){
+        alert("点我啊!");
+    }
+    document.getElementById("btnID").onclick=function(){alert('点我了吗？');}
+</script>-->
+</html>
